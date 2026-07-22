@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Улучшение изображений в браузере (ML demo)</title>
+  <!-- Подключаем современный шрифт Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+  <header>
+    <h1>Улучшение изображений</h1>
+    <p class="subtitle">ML-модель (TensorFlow.js) подбирает параметры коррекции яркости, контрастности и цветности. Вся обработка выполняется локально в браузере.</p>
+  </header>
+
+  <main>
+    <section class="demo-block card">
+      <h3>⚡ Попробовать без загрузки файла</h3>
+      <p class="demo-hint">Нажмите на пример — он автоматически пройдёт весь цикл обработки.</p>
+      <div class="demo-samples">
+        <button class="demo-btn" data-src="assets/test-black-sky.jpg" data-label="Тёмное ночное фото">
+          <strong>Тёмное фото</strong><br>
+          <span>нужна заметная коррекция</span>
+        </button>
+        <button class="demo-btn" data-src="assets/test-bw.jpg" data-label="Плоское туманное фото">
+          <strong>Низкий контраст</strong><br>
+          <span>алгоритм добавит контраст</span>
+        </button>
+        <button class="demo-btn" data-src="assets/test-vivid-2.jpg" data-label="Уже контрастное фото">
+          <strong>Уже хорошее фото</strong><br>
+          <span>коррекция будет минимальной</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="upload-block card">
+      <h3>📁 Загрузить своё изображение</h3>
+      <label for="fileInput" class="file-label">Поддерживаемые форматы: JPG, PNG, HEIC, BMP</label>
+      <div class="upload-controls">
+        <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.heic,.heif,.bmp,image/*">
+        <div class="action-buttons">
+          <button id="processBtn" class="primary-btn" disabled>Обработать</button>
+          <button id="abortBtn" class="danger-btn" disabled>Отменить</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-block card">
+      <div class="progress-header">
+        <h3>Статус обработки</h3>
+        <span id="statusText" class="status-badge">Ожидание файла…</span>
+      </div>
+      <div id="progressBarOuter">
+        <div id="progressBarInner"></div>
+      </div>
+    </section>
+
+    <section class="images-block">
+      <div class="image-card card">
+        <h3>Исходное изображение</h3>
+        <div class="img-wrapper">
+          <img id="originalImg" alt="Ожидание изображения..." src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
+        </div>
+      </div>
+      <div class="image-card card">
+        <h3>Результат</h3>
+        <div class="img-wrapper">
+          <img id="resultImg" alt="Здесь появится результат" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
+        </div>
+        <a id="downloadLink" href="#" download="enhanced.png" class="download-btn" style="display:none">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Скачать результат
+        </a>
+      </div>
+    </section>
+
+    <section class="log-block card">
+      <h3>Системный лог</h3>
+      <pre id="logBox">Ожидание запуска системы...</pre>
+    </section>
+  </main>
+</div>
+
+<!-- Библиотека для конвертации HEIC -> JPEG -->
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+<script src="app.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

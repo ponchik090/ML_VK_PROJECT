@@ -1,0 +1,342 @@
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-blue: #3b82f6;
+  --accent-blue-hover: #2563eb;
+  --accent-gradient: linear-gradient(135deg, #38bdf8, #6366f1);
+  --border-color: #334155;
+  --success: #10b981;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --font-family: 'Inter', sans-serif;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Typography & Header */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+header h1 span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cards & Sections */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+
+/* Demo Section */
+.demo-block {
+  background: linear-gradient(to right, rgba(30, 41, 59, 1), rgba(30, 41, 59, 0.4));
+  border-left: 4px solid var(--accent-blue);
+}
+
+.demo-hint {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.demo-samples {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.demo-btn {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px;
+  text-align: left;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo-btn strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.demo-btn span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.demo-btn:hover {
+  border-color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Upload Section */
+.file-label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.upload-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Stylize standard file input */
+input[type="file"] {
+  font-family: var(--font-family);
+  color: var(--text-muted);
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--bg-color);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 16px;
+  transition: all 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  border-color: var(--text-muted);
+  background: var(--border-color);
+}
+
+/* Buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  font-family: var(--font-family);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.primary-btn {
+  background: var(--accent-blue);
+  color: white;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: var(--accent-blue-hover);
+}
+
+.danger-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.danger-btn:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+/* Progress Bar */
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-header h3 {
+  margin-bottom: 0;
+}
+
+.status-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+#progressBarOuter {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-color);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+#progressBarInner {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-gradient);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+/* Add an animated glow to the processing bar */
+#progressBarInner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Images Section */
+.images-block {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-wrapper {
+  background: repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%) 50% / 20px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.image-card img {
+  max-width: 100%;
+  max-height: 350px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* Download Link Styling */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--success);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.download-btn:hover {
+  background: #059669;
+}
+
+/* System Log */
+#logBox {
+  max-height: 180px;
+  overflow-y: auto;
+  background: #000;
+  color: #4ade80; /* matrix green */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+  line-height: 1.5;
+}
+
+/* Custom Scrollbar for logBox */
+#logBox::-webkit-scrollbar {
+  width: 8px;
+}
+#logBox::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 8px;
+}
+#logBox::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 8px;
+}
